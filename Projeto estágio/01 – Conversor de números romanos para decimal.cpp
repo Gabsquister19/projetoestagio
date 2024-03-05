@@ -4,9 +4,9 @@
 #include <cstdlib> // Para usar atoi
 #include <vector>
 
-// FunÁ„o para converter um n˙mero romano em decimal
+// Fun√ß√£o para converter um n√∫mero romano em decimal
 int romanToDecimal(const std::string& roman) {
-    // Mapa de convers„o de sÌmbolos romanos para valores decimais
+    // Mapa de convers√£o de s√≠mbolos romanos para valores decimais
     std::map<char, int> romanMap;
     romanMap.insert(std::make_pair('I', 1));
     romanMap.insert(std::make_pair('V', 5));
@@ -16,25 +16,25 @@ int romanToDecimal(const std::string& roman) {
     romanMap.insert(std::make_pair('D', 500));
     romanMap.insert(std::make_pair('M', 1000));
 
-    // Vari·vel para armazenar o valor decimal
+    // Vari√°vel para armazenar o valor decimal
     int decimal = 0;
 
-    // Loop atravÈs dos sÌmbolos romanos
+    // Loop atrav√©s dos s√≠mbolos romanos
     for (size_t i = 0; i < roman.size(); ++i) {
-        // Verifica se o sÌmbolo atual È menor que o prÛximo sÌmbolo
+        // Verifica se o s√≠mbolo atual √© menor que o pr√≥ximo s√≠mbolo
         if (i + 1 < roman.size() && romanMap[roman[i]] < romanMap[roman[i + 1]]) {
             decimal -= romanMap[roman[i]]; // Se sim, subtrai o valor
         } else {
-            decimal += romanMap[roman[i]]; // Caso contr·rio, adiciona o valor
+            decimal += romanMap[roman[i]]; // Caso contr√°rio, adiciona o valor
         }
     }
 
     return decimal;
 }
 
-// FunÁ„o para converter um n˙mero decimal em romano
+// Fun√ß√£o para converter um n√∫mero decimal em romano
 std::string decimalToRoman(int decimal) {
-    // Mapa de convers„o de valores decimais para sÌmbolos romanos
+    // Mapa de convers√£o de valores decimais para s√≠mbolos romanos
     std::map<int, std::string> decimalMap;
     decimalMap.insert(std::make_pair(1, "I"));
     decimalMap.insert(std::make_pair(4, "IV"));
@@ -52,10 +52,10 @@ std::string decimalToRoman(int decimal) {
 
     // Vetor para armazenar os valores decimais
     std::vector<int> decimals;
-    // Vetor para armazenar os sÌmbolos romanos
+    // Vetor para armazenar os s√≠mbolos romanos
     std::vector<std::string> romanSymbols;
 
-    // Adiciona os valores decimais e sÌmbolos romanos ao vetor
+    // Adiciona os valores decimais e s√≠mbolos romanos ao vetor
     for (auto it = decimalMap.rbegin(); it != decimalMap.rend(); ++it) {
         while (decimal >= it->first) {
             decimals.push_back(it->first);
@@ -64,7 +64,7 @@ std::string decimalToRoman(int decimal) {
         }
     }
 
-    // ConstrÛi a representaÁ„o romana
+    // Constr√≥i a representa√ß√£o romana
     std::string roman;
     for (size_t i = 0; i < decimals.size(); ++i) {
         roman += romanSymbols[i];
@@ -78,15 +78,15 @@ int main() {
 
     // Loop principal do programa
     while (true) {
-        std::cout << "Digite um n˙mero romano ou decimal (q para sair): ";
+        std::cout << "Digite um n√∫mero romano ou decimal (q para sair): ";
         std::cin >> input;
 
-        // Verifica se o usu·rio deseja sair
+        // Verifica se o usu√°rio deseja sair
         if (input == "q") {
             break;
         }
 
-        // Verifica se o usu·rio inseriu um n˙mero romano ou decimal
+        // Verifica se o usu√°rio inseriu um n√∫mero romano ou decimal
         bool isRoman = true;
         for (char c : input) {
             if (!isdigit(c)) {
@@ -97,11 +97,16 @@ int main() {
 
         // Converte e exibe o resultado
         if (isRoman) {
-            // Converte o n˙mero romano para decimal
+            // Converte o n√∫mero romano para decimal
             int decimal = romanToDecimal(input);
             std::cout << "Valor decimal: " << decimal << std::endl;
         } else {
-            // Converte o n˙mero decimal para romano
+            // Converte o n√∫mero decimal para romano
             int decimal = atoi(input.c_str()); // Converte a string para int
             std::string roman = decimalToRoman(decimal);
             std::
+
+        system("pause");
+
+        return 0;
+    }
